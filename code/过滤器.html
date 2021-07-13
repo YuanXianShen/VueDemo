@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{msg | format('yyyy-MM-dd hh:mm:ss')}}</div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/time.js"></script>
+    <script>
+        Vue.filter('format', function (value, arg) {
+            return dateFormat(value, arg);
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: new Date()
+            }
+        })
+    </script>
+</body>
+
+</html>
